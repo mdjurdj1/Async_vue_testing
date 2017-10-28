@@ -1,4 +1,6 @@
-var state = {}
+var state = {
+  clicked: 0
+}
 
 var app = new Vue({
   el: '#app',
@@ -12,7 +14,14 @@ var app_2 = new Vue({
   data: {
     message: 'Wow, another message!',
     input: 'This field is bound from the Vue.',
-    github: function() {
+    reposVisible: true
+  },
+  methods: {
+    reverseMessage: function() {
+      this.message = this.message.split('').reverse().join('')
+    },
+    getRepos: function() {
+      this.reposVisible ? this.reposVisible = true : this.reposVisible = false;
       var myInit = {
         method: 'GET',
         headers: {
@@ -28,24 +37,23 @@ var app_2 = new Vue({
           let textNode = document.createTextNode(`${r.name}`)
           node.appendChild(textNode)
           document.getElementById('list').appendChild(node)
-      })
-    })
-  }()
-}
-})
+          })
+        })
+      },
+    clearRepos: function() {
+      document.getElementById('list').innerHTML = ''
+    }
+    }
+  })
 
 var app_3 = new Vue({
   el: '#app_3',
   data: {
-     message: `Greetings! You loaded this page on ${new Date().toLocaleString()}!`
+     message: `Greetings! You loaded this page on ${new Date().toLocaleString()}!`,
+     seen: true
   }
 })
 
 handleSubmit = (e) => {
-  state.submitted ? state.submitted = false : state.submitted = true
-  if(state.submitted) {
-    app_2.input = 'THE SWITCH IS ON!'
-  } else {
-    app_2.input = 'The switch is off...'
-  }
+  app_3.seen ? app_3.seen = false : app_3.seen = true;
 }
