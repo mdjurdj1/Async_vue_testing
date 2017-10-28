@@ -1,23 +1,30 @@
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Vue Testing</title>
 </head>
+
 <body>
-<div id="app">
-  {{ message }}
-</div>
-<div id="app_2">
-  {{ message }}
-  <form onSubmit='handleSubmit()'>
-    <input type='text' name='name' value={{message}}>
-    <input type='submit'>
-  </form>
-</div>
-<ul id="list"></ul>
-<script src="https://unpkg.com/vue"></script>
-<script src="main.js"></script>
+  <div id="app">
+    {{ message }}
+  </div>
+  <div id="app_2">
+    {{ message }}
+    <input type='text' name='name' v-bind:value='input'>
+    <button type='submit' onClick="handleSubmit()">CLICK!</button>
+  </div>
+  <div id="app_3">
+    <span v-bind:title="message">
+      Hover your mouse over me for a few seconds
+      to see my dynamically bound title!
+    </span>
+  </div>
+  <ul id="list"></ul>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="main.js"></script>
 </body>
+
 </html>
