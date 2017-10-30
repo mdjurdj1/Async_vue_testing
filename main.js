@@ -25,7 +25,7 @@ var app_2 = new Vue({
       var myInit = {
         method: 'GET',
         headers: {
-          Authorization: `token f91a83b76a26caa6f9d043f4f8f40d4a1370d7b7`
+          Authorization: `token `
         }
       }
       fetch('https://api.github.com/users/mdjurdj1/repos', myInit).then(response => {
