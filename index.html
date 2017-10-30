@@ -8,12 +8,14 @@
 </head>
 
 <body>
+
   <div id="app">
     {{ message }}
   </div>
+
   <div id="app_2">
     {{ message }}
-    <input type='text' name='name' v-bind:value='input'>
+    <input type='text' name='name' v-model='message'>
     <button type='submit' onClick="handleSubmit()">CLICK!</button>
     <br>
     <button v-on:click="reverseMessage">Flip this message!</button>
@@ -21,12 +23,26 @@
     <button v-on:click="clearRepos">CLEAR THE REPOS!</button>
     <ul v-if='reposVisible' id="list"></ul>
   </div>
+
   <div v-if='seen' id="app_3">
     <span v-bind:title="message">
       Hover your mouse over me for a few seconds
       to see my dynamically bound title!
     </span>
+
+    <ol>
+      <list-item
+        v-for='person in peopleList'
+        v-bind:todo='person'
+        v-bind:key='person.id' ></list-item>
+    </ol>
+
   </div>
+
+  <ol>
+    <list-item></list-item>
+  </ol>
+
   <script src="https://unpkg.com/vue"></script>
   <script src="main.js"></script>
 </body>

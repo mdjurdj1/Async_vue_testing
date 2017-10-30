@@ -25,7 +25,7 @@ var app_2 = new Vue({
       var myInit = {
         method: 'GET',
         headers: {
-          Authorization: `token `
+          Authorization: `token f91a83b76a26caa6f9d043f4f8f40d4a1370d7b7`
         }
       }
       fetch('https://api.github.com/users/mdjurdj1/repos', myInit).then(response => {
@@ -50,6 +50,7 @@ var app_3 = new Vue({
   el: '#app_3',
   data: {
      message: `Greetings! You loaded this page on ${new Date().toLocaleString()}!`,
+     peopleList: [{text: "Mike", id: 1, career:'doctor'}, {text:"John", id:2, career:'doctor'}, {text:"Alexis", id:3, career:'doctor'}],
      seen: true
   }
 })
@@ -57,3 +58,8 @@ var app_3 = new Vue({
 handleSubmit = (e) => {
   app_3.seen ? app_3.seen = false : app_3.seen = true;
 }
+
+Vue.component('list-item', {
+  props: ['todo'],
+  template: '<li>{{todo.text}}  |   {{todo.career}}</li>'
+})
