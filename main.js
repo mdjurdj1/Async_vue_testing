@@ -42,6 +42,9 @@ var app_2 = new Vue({
       },
     clearRepos: function() {
       document.getElementById('list').innerHTML = ''
+    },
+    alertEm: function() {
+      alert('RED ALERT!')
     }
     }
   })
